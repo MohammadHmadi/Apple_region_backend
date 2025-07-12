@@ -17,13 +17,13 @@ class UserImageUploadController extends Controller
         $imageName = time().'.'.$image->extension();
 
         // Store directly in public/storage/image/users
-        $publicPath = public_path('storage/image/users');
+        $publicPath = public_path('public/uploads');
         $image->move($publicPath, $imageName);
 
         return response()->json([
             'success' => true,
             'message' => 'Image uploaded successfully',
-            'url' => asset("storage/image/users/$imageName")
+            'url' => asset("public/uploads/$imageName")
         ]);
     }
 }
